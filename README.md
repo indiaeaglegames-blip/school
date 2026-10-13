@@ -45,7 +45,7 @@ The current folder is a static-site source. To publish it, deploy the folder con
 - **Netlify:** deploy the folder containing `index.html` using Netlify's site deploy flow, or connect a repository for automatic updates.
 - **Vercel:** import the repository as a static project and deploy the directory containing `index.html`.
 
-After publishing, open the HTTPS URL on a phone and desktop and follow the testing checklist below. A custom domain can be connected later through the hosting provider's domain settings. This workspace has not been connected to a hosting project, so no public deployment URL is configured yet.
+The site is published through GitHub Pages at https://indiaeaglegames-blip.github.io/school/. GitHub Pages serves the root `index.html`, which forwards visitors to `rural-virtual-labs.html`. New commits to the `main` branch publish automatically after the Pages build completes. A custom domain can be connected later through repository Pages settings.
 
 The navigation includes a touch-friendly mobile menu. The layouts collapse to one column on narrow screens; simulation controls use native range and select inputs. The page uses no external libraries, fonts, or images, which keeps its download small. It can be opened from a local download without network access; local-storage support depends on the browser, so use the local HTTP-server option when demonstrating persistence.
 
