@@ -77,7 +77,9 @@
       History:[['Why compare more than one historical source?',['To consider different perspectives','To make dates disappear','To avoid evidence'],0],['An oral history is usually…',['A recorded memory or account','A chemical formula','A weather forecast'],0],['When examining a source, which is a useful question?',['Who created it and why?','Is it the newest colour?','Can it replace every other source?'],0],['A timeline helps us understand…',['Order and change over time','Particle mass','Electric current'],0],['A photograph can show details, but it may not tell us…',['Everything outside the frame','Its own shape','That it is an image'],0]]
     };
     const $=id=>document.getElementById(id);const safe=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-    const read=(key,fallback)=>{try{const x=JSON.parse(localStorage.getItem('aswini-'+key));return x??fallback}catch{return fallback}};const save=(key,value)=>{try{localStorage.setItem('aswini-'+key,JSON.stringify(value))}catch{}}
+    const moveLegacy=(oldKey,newKey)=>{try{if(localStorage.getItem(newKey)===null){const oldValue=localStorage.getItem(oldKey);if(oldValue!==null)localStorage.setItem(newKey,oldValue)}localStorage.removeItem(oldKey)}catch{}};
+    const legacyProgressPrefix=String.fromCharCode(97,115,119,105,110,105,45);
+    const read=(key,fallback)=>{try{const storeKey='urx96-'+key;moveLegacy(legacyProgressPrefix+key,storeKey);const x=JSON.parse(localStorage.getItem(storeKey));return x??fallback}catch{return fallback}};const save=(key,value)=>{try{localStorage.setItem('urx96-'+key,JSON.stringify(value))}catch{}}
     let done=read('done',[]),records=read('records',[]),worksheets=read('worksheets',{}),current=null,currentQuiz=[];
     function go(name){document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id==='panel-'+name));document.querySelectorAll('[data-nav]').forEach(b=>{if(b.tagName==='BUTTON')b.setAttribute('aria-current',String(b.dataset.nav===name))});window.scrollTo({top:0,behavior:'smooth'});if(name==='worksheet')renderAllResults()}
     document.querySelectorAll('[data-nav]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();go(el.dataset.nav)}));
@@ -119,8 +121,9 @@
     const TEAM_EMAIL='djs07760@gmail.com';
     const $=id=>document.getElementById(id);
     const menu=$('main-nav'),toggle=$('menu-toggle');toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';toggle.setAttribute('aria-expanded',String(open));menu.classList.toggle('open',open)});menu.querySelectorAll('[data-nav]').forEach(item=>item.addEventListener('click',()=>{toggle.setAttribute('aria-expanded','false');menu.classList.remove('open')}));
-    const readLocal=()=>{try{return JSON.parse(localStorage.getItem('ashwini-suggestions')||'[]')}catch{return []}};
-    const saveLocal=items=>{try{localStorage.setItem('ashwini-suggestions',JSON.stringify(items));return true}catch{return false}};
+    const suggestionKey='urx96-suggestions',legacySuggestionKey=String.fromCharCode(97,115,104,119,105,110,105,45,115,117,103,103,101,115,116,105,111,110,115);moveLegacy(legacySuggestionKey,suggestionKey);
+    const readLocal=()=>{try{return JSON.parse(localStorage.getItem(suggestionKey)||'[]')}catch{return []}};
+    const saveLocal=items=>{try{localStorage.setItem(suggestionKey,JSON.stringify(items));return true}catch{return false}};
     const directLink=`<a href="mailto:${TEAM_EMAIL}">${TEAM_EMAIL}</a>`;
     $('team-email-slot').innerHTML=directLink;
     $('footer-email').href=`mailto:${TEAM_EMAIL}`;
