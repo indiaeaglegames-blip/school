@@ -1,4 +1,4 @@
-# ASHWINI School Virtual Labs
+# URX96 Virtual Labs
 
 A lightweight, single-page learning site for high school students. It runs in a browser without accounts, external APIs, or downloaded libraries. The HTML file contains the styles, illustrations, simulations, quizzes, and local progress features.
 
