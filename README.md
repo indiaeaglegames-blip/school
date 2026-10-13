@@ -25,7 +25,7 @@ No build step, login, or network connection is required after the files are avai
 ## Contact Us and Suggestion Box
 
 - The Contact Us form validates the required email, subject, and message, then opens the visitor's email app using `mailto:` addressed to **djs07760@gmail.com**. The visitor reviews and sends the draft in their own email app. The website cannot verify whether it was sent or delivered, and it does not display a delivery success claim.
-- Suggestions are saved to the browser's `localStorage` under `ashwini-suggestions`. The confirmation explicitly says they are saved only on the current device. They are not sent to the project team and cannot be reviewed from other devices.
+- Suggestions are saved to the browser's `localStorage` under `urx96-suggestions`. The confirmation explicitly says they are saved only on the current device. They are not sent to the project team and cannot be reviewed from other devices. Existing suggestions and progress from older site versions are migrated to the URX96 storage keys on load.
 - Name and email in the suggestion form are optional. Students should avoid entering private information. Clearing browser site data may delete locally saved suggestions.
 - This prototype has no shared suggestion database or protected admin page. Do not use it to collect suggestions across devices until a backend, access controls, and a retention policy are configured.
 
