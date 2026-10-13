@@ -56,6 +56,9 @@ The navigation includes a touch-friendly mobile menu. The layouts collapse to on
 - **Biology:** microscope explorer and a photosynthesis factors model.
 - **Mathematics:** an adjustable linear-equation graph.
 - **History:** source comparison and a community-history timeline prompt.
+- **Yoga:** breathing-awareness visual, safe movement pathway, and a short sequencing project.
+- **Sports Science:** fictional training-load model, recovery discussion, and data-literacy project.
+- **Robotics:** sensor and logic-gate playground with a design project.
 - Experiment library search and subject/difficulty filters.
 - Step-by-step instructions, virtual apparatus, model observations, explanations, and recorded result tables.
 - Five-question quizzes with instant feedback and saved best scores.
@@ -67,10 +70,10 @@ Open the site and check the following:
 
 1. Home subject cards open the library with the selected subject filter.
 2. Search text and subject/difficulty filters change the experiment cards; clear the search to restore the list.
-3. Open each of the eight science experiments and move every slider or select a different option. Confirm the result and illustration update.
+3. Open all thirteen activities and move every slider or select a different option. Confirm the result and illustration update.
 4. Record two readings in an experiment and confirm both appear in its table and in the Worksheet page.
 5. Reset the experiment and confirm controls return to their starting values.
-6. Try each subject quiz, select answers, check feedback and score, then reload and confirm progress/results remain on that browser.
+6. Try all eight subject quizzes, select answers, check feedback and score, then reload and confirm progress/results remain on that browser.
 7. Save a worksheet, change to another experiment and back, and confirm the saved fields return.
 8. Resize to a phone-sized viewport and confirm navigation, cards, controls, and tables remain usable.
 9. Disconnect from the network and reopen the local HTML file. Core content and simulations should remain available.
@@ -83,9 +86,13 @@ Open the site and check the following:
 1. Open the site before presenting and start on the Home page.
 2. Filter for Physics and demonstrate the pendulum or Ohm's law model. Change one control, predict the next result, and record two trials.
 3. Demonstrate the Chemistry indicator and Biology microscope or photosynthesis model. Explain that the simulations are simplified educational models.
-4. Open Mathematics to connect an equation with its graph, then use History to discuss how sources can offer different perspectives.
+4. Open Mathematics to connect an equation with its graph; use History to compare sources; explore Yoga, Sports Science, and Robotics with their learning pathways, projects, and safety notes.
 5. Complete a short quiz and show the score, progress tracker, and saved worksheet.
 6. Explain that notes and progress are stored only in the current browser. They are not a student account or cloud backup.
+
+## Added subject activity notes
+
+Yoga, Sports Science, and Robotics each have a guided interactive model, three learning modules, a project prompt, and an explicit safety/access note. The models are intentionally lightweight: the Yoga activity is a visual breathing cue, Sports Science uses fictional values, and Robotics demonstrates basic Boolean logic without hardware. They do not include webcam pose tracking, streamed video, advanced 3D simulation, or real-time performance/health advice.
 
 ## Notes for teachers
 
