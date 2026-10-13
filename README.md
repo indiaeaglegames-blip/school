@@ -1,99 +1,45 @@
 # URX96 Virtual Labs
 
-A lightweight, single-page learning site for high school students. It runs in a browser without accounts, external APIs, or downloaded libraries. The HTML file contains the styles, illustrations, simulations, quizzes, and local progress features.
+A responsive, low-bandwidth learning website for high school students. The eight subject pathways are Physics, Chemistry, Biology, Mathematics, History, Yoga, Sports, and Robotics. Each pathway includes five modules, lesson explanations, key points, activities, module knowledge checks, project challenges, and a glossary.
 
-## Run the site
+## Included
 
-1. Keep `rural-virtual-labs.html` and this README in the same folder.
-2. Open `rural-virtual-labs.html` in a current browser. The simulations work directly from the downloaded file.
-3. For a local web-server demonstration, open a terminal in this folder and run:
+- 40 subject modules with 120 lesson activities.
+- Six lightweight interactive labs: Ohm’s Law, pH Explorer, Cell Explorer, Gentle Breathing Awareness, Reaction-Time Mini Test, and Robot Path Planning.
+- Lesson completion and quiz scores saved in this browser’s local storage. Progress does not sync to other devices.
+- Responsive mobile navigation, keyboard access for subject cards and lab controls, and reduced-motion support.
+- Contact form that opens a draft in the visitor’s email app addressed to **djs07760@gmail.com**. The website cannot confirm sending or delivery.
+- Suggestion box saved only in the current browser under `urx96-suggestions`. It is not sent to the team or visible from other devices.
+
+## Run locally
+
+1. Keep `index.html`, `style.css`, `content.js`, and `script.js` together.
+2. Open `index.html` in a current browser. For consistent local storage behavior, run a static server from this folder:
 
    ```sh
    python -m http.server 8000
    ```
 
-4. Open `http://localhost:8000/rural-virtual-labs.html` in the browser.
+3. Visit `http://localhost:8000`.
 
-No build step, login, or network connection is required after the files are available. Saved worksheets, recorded readings, quiz results, and completion status use this browser's local storage. They do not sync to other devices and can be cleared by clearing browser site data.
+No package install or build step is needed. The styles use system-font fallbacks; the site does not fetch external fonts, images, APIs, or libraries.
 
-## Project structure
+## Contact and suggestions
 
-- `rural-virtual-labs.html` — the complete application: page structure, responsive styles, experiment definitions, interactive models, quiz bank, worksheets, and local progress tracking.
-- `index.html` — a small hosting entry point that forwards the site root to the complete application.
-- `README.md` — setup and exhibition guide.
+The contact form validates the required email, subject, and message, then prepares a `mailto:` draft. The visitor must review and send it. No frontend API key or password is used, and the site does not report delivery success. The project email is linked in the contact section and footer.
 
-## Contact Us and Suggestion Box
+The suggestion form validates a non-empty message and stores the optional name/email, user type, category, rating, and date locally. A thank-you message states that the suggestion remains on this device and has not been sent to the team. Clearing browser storage can erase it. This prototype has no shared database, admin page, or cross-device review.
 
-- The Contact Us form validates the required email, subject, and message, then opens the visitor's email app using `mailto:` addressed to **djs07760@gmail.com**. The visitor reviews and sends the draft in their own email app. The website cannot verify whether it was sent or delivered, and it does not display a delivery success claim.
-- Suggestions are saved to the browser's `localStorage` under `urx96-suggestions`. The confirmation explicitly says they are saved only on the current device. They are not sent to the project team and cannot be reviewed from other devices. Existing suggestions and progress from older site versions are migrated to the URX96 storage keys on load.
-- Name and email in the suggestion form are optional. Students should avoid entering private information. Clearing browser site data may delete locally saved suggestions.
-- This prototype has no shared suggestion database or protected admin page. Do not use it to collect suggestions across devices until a backend, access controls, and a retention policy are configured.
+For shared submissions later, connect a backend or hosted form service, add server-side validation and spam protection, describe privacy and retention, and protect any team review page with real authentication and server-side authorization. Never put service keys in browser code.
 
-### Adding a different team email
+## Hosting
 
-Update `TEAM_EMAIL` in the final inline script in `rural-virtual-labs.html` and the footer `mailto:` address. The `mailto:` flow uses the visitor's email client; it does not need API keys. For reliable server-side delivery, use a trusted form/email service or serverless function. Keep provider credentials in server-side environment variables, never in the HTML or browser JavaScript.
+Deploy the folder containing `index.html` to a static HTTPS host such as GitHub Pages, Netlify, or Vercel. There is no build command; the publish directory is the folder containing `index.html`. The current GitHub Pages address is <https://indiaeaglegames-blip.github.io/school/>. Keep `style.css`, `content.js`, and `script.js` next to `index.html` when uploading. A custom domain can be connected through the host’s domain settings.
 
-### Future shared suggestions and admin review
+## Educational safety and limits
 
-For cross-device submissions, replace the local-storage handler with a server endpoint or a managed database such as Supabase. Validate and rate-limit submissions on the server, restrict stored personal information, and define who can access it. Build the admin view behind real authentication and server-side authorization; filter by category and store review status (`New`, `Reviewed`, `Resolved`) in the database. Never rely on a hidden frontend route or a password embedded in JavaScript as admin protection. Keep service-role keys on the server only.
+All simulations are simplified learning models. The breathing animation is not instruction to hold or force a breath and is not medical advice. The reaction-time activity is an on-screen mini test, not a sports assessment. The robot path activity does not control hardware. Real yoga or sports activity should be optional, adapted, and appropriately supervised. Real robotics and chemistry work must follow teacher direction, equipment documentation, protective measures, and local safety rules.
 
-## Hosting and mobile access
+## Customize
 
-The current folder is a static-site source. To publish it, deploy the folder containing `index.html` and `rural-virtual-labs.html` to a static host over HTTPS:
-
-- **GitHub Pages:** place both site files at the repository root, then enable Pages for the chosen branch and root folder in repository settings.
-- **Netlify:** deploy the folder containing `index.html` using Netlify's site deploy flow, or connect a repository for automatic updates.
-- **Vercel:** import the repository as a static project and deploy the directory containing `index.html`.
-
-The site is published through GitHub Pages at https://indiaeaglegames-blip.github.io/school/. GitHub Pages serves the root `index.html`, which forwards visitors to `rural-virtual-labs.html`. New commits to the `main` branch publish automatically after the Pages build completes. A custom domain can be connected later through repository Pages settings.
-
-The navigation includes a touch-friendly mobile menu. The layouts collapse to one column on narrow screens; simulation controls use native range and select inputs. The page uses no external libraries, fonts, or images, which keeps its download small. It can be opened from a local download without network access; local-storage support depends on the browser, so use the local HTTP-server option when demonstrating persistence.
-
-## First version features
-
-- **Physics:** simple pendulum, Ohm's law, and reflection of light.
-- **Chemistry:** pH indicator, separating mixtures, and states of matter.
-- **Biology:** microscope explorer and a photosynthesis factors model.
-- **Mathematics:** an adjustable linear-equation graph.
-- **History:** source comparison and a community-history timeline prompt.
-- **Yoga:** breathing-awareness visual, safe movement pathway, and a short sequencing project.
-- **Sports Science:** fictional training-load model, recovery discussion, and data-literacy project.
-- **Robotics:** sensor and logic-gate playground with a design project.
-- Experiment library search and subject/difficulty filters.
-- Step-by-step instructions, virtual apparatus, model observations, explanations, and recorded result tables.
-- Five-question quizzes with instant feedback and saved best scores.
-- Worksheets, completion progress, and a teacher discussion mode.
-
-## Testing checklist
-
-Open the site and check the following:
-
-1. Home subject cards open the library with the selected subject filter.
-2. Search text and subject/difficulty filters change the experiment cards; clear the search to restore the list.
-3. Open all thirteen activities and move every slider or select a different option. Confirm the result and illustration update.
-4. Record two readings in an experiment and confirm both appear in its table and in the Worksheet page.
-5. Reset the experiment and confirm controls return to their starting values.
-6. Try all eight subject quizzes, select answers, check feedback and score, then reload and confirm progress/results remain on that browser.
-7. Save a worksheet, change to another experiment and back, and confirm the saved fields return.
-8. Resize to a phone-sized viewport and confirm navigation, cards, controls, and tables remain usable.
-9. Disconnect from the network and reopen the local HTML file. Core content and simulations should remain available.
-10. Submit the Contact Us form with missing and malformed values; confirm validation. With valid values, confirm the email app opens a prefilled draft and the site says it cannot confirm delivery.
-11. Submit a valid suggestion, confirm the thank-you message says it is local only, reload, and verify the saved-device count. Try an invalid optional email and an empty suggestion.
-12. On a phone-sized screen, open and close the Menu button and follow each subject/contact/suggestion link.
-
-## Exhibition demonstration
-
-1. Open the site before presenting and start on the Home page.
-2. Filter for Physics and demonstrate the pendulum or Ohm's law model. Change one control, predict the next result, and record two trials.
-3. Demonstrate the Chemistry indicator and Biology microscope or photosynthesis model. Explain that the simulations are simplified educational models.
-4. Open Mathematics to connect an equation with its graph; use History to compare sources; explore Yoga, Sports Science, and Robotics with their learning pathways, projects, and safety notes.
-5. Complete a short quiz and show the score, progress tracker, and saved worksheet.
-6. Explain that notes and progress are stored only in the current browser. They are not a student account or cloud backup.
-
-## Added subject activity notes
-
-Yoga, Sports Science, and Robotics each have a guided interactive model, three learning modules, a project prompt, and an explicit safety/access note. The models are intentionally lightweight: the Yoga activity is a visual breathing cue, Sports Science uses fictional values, and Robotics demonstrates basic Boolean logic without hardware. They do not include webcam pose tracking, streamed video, advanced 3D simulation, or real-time performance/health advice.
-
-## Notes for teachers
-
-These models support learning and discussion; they are not substitutes for supervised lab work or safety instructions. The pH examples are illustrative. The separation, particle, cell, pendulum, circuit, and photosynthesis visuals simplify real systems. Ask learners to compare a model's predictions with evidence and to identify what it leaves out.
+Edit `content.js` to add or revise subjects. Each subject has `outcomes`, `modules`, `projects`, and `glossary`; lessons include `title`, `content`, `points`, and `activity`. Keep subject IDs unique and add a matching accent color and tint in `script.js`.
