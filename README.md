@@ -20,24 +20,19 @@ A responsive, low-bandwidth learning website for high school students. The eight
    python -m http.server 8000
    ```
 
-3. Visit `http://localhost:8000`. This static server supports the site’s local learning features; account deletion runs through the deployed Vercel API. To exercise it locally, run the project with `vercel dev` and local environment variables (never commit them).
+3. Visit `http://localhost:8000`. The static server supports local learning features. Authentication and account deletion use the hosted Supabase project; add any local redirect URL to Supabase Auth URL configuration before testing email links locally.
 
-No package install or build step is needed. The styles use system-font fallbacks; the site does not fetch external fonts, images, APIs, or libraries.
+No package install or build step is needed. The styles use system-font fallbacks. The site loads the Supabase JavaScript client from a CDN for account features.
 
-## Accounts (Supabase setup required)
+## Accounts (Supabase Auth)
 
-The account screen supports email/password registration, login/logout, email-verification and password-reset links, a personal dashboard, a browser-progress privacy toggle, and confirmed account deletion. Registration and login stay disabled with a setup notice until a Supabase project is connected. Passwords are sent directly to Supabase Auth; they are never saved by the website.
+The website connects to the **SciSphere** Supabase project in the Mumbai region (`ap-south-1`). The browser uses the project's public URL and publishable key from `auth-config.js`. A publishable key is intended to be public; never put a Supabase secret or database password in browser code or GitHub.
 
-1. Create a Supabase project and enable email/password sign-in. Keep email confirmation enabled.
-2. In Supabase Authentication URL settings, set the site URL to `https://school-one-sable.vercel.app` and add `https://school-one-sable.vercel.app/**` as a redirect URL. Add your local development URL (for example `http://localhost:8000/**`) while testing.
-3. Configure a trusted SMTP sender in Supabase if verification and password-reset messages must reach student addresses reliably.
-4. Copy the project's **Project URL** and **publishable/anon key** into `auth-config.js`. These are public browser settings; never put a service-role or secret key there.
-5. In Vercel Project → Settings → Environment Variables, add `SUPABASE_URL` and either `SUPABASE_SECRET_KEY` (recommended) or `SUPABASE_SERVICE_ROLE_KEY` for the server-side account deletion function. Keep that key only in Vercel’s server-side environment variables, then redeploy. Never commit it.
-6. After deployment, register a test account, verify its email, log in, request a password reset, and use the delete-account confirmation flow. Do not use a real student's account during setup.
+Registration, login/logout, email verification, password reset, the personal dashboard, the local-progress privacy control, and confirmed account deletion use Supabase Auth. Verification and reset links return to the website, so configure the Supabase Auth URL settings with Site URL `https://school-one-sable.vercel.app` and redirect URL `https://school-one-sable.vercel.app/**`. Add a local development URL separately if you test email links locally. Configure a trusted SMTP sender if verification and reset messages must reach student inboxes reliably.
 
-The delete endpoint uses the official Supabase server SDK to verify the caller's access token before deleting that same authenticated user. The secret/service-role key is used only in the Vercel function. Local progress is optional and controlled by the dashboard privacy setting; suggestions and problem reports remain separate local-only demo data. Account deletion does not erase those browser-local records. For shared progress or feedback across devices, add database tables with row-level security and an explicit retention policy.
+Account deletion runs through the deployed Supabase Edge Function `delete-account`; its source is `supabase/functions/delete-account/index.ts`. The function requires an authenticated user session and deletes only the caller's account. Its elevated Supabase credentials stay inside the Edge Function environment; no service key is needed in Vercel or in the website source.
 
-Vercel automatically deploys Node.js functions placed under the repository-root `api/` directory. The included endpoint is `/api/account/delete`.
+To deploy future function changes with the Supabase CLI, initialize/link the project as needed, then run `supabase functions deploy delete-account`. Do not commit any local environment files. The site keeps lesson progress and suggestions in browser Local Storage; they do not sync across devices. Deleting an account does not delete those browser-local records.
 
 ## Contact and suggestions
 
