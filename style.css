@@ -82,3 +82,21 @@ body[data-theme="dark"] ::placeholder{color:#c1ced8}
  .trust-strip{padding-left:12px;padding-right:12px}
  .topbar{gap:8px}
 }
+
+/* Tablet navigation keeps the header readable before the phone breakpoint. */
+@media(max-width:1100px){
+ .topbar{gap:12px}
+ .menu-toggle{display:block;margin-left:auto;flex:0 0 44px}
+ .topbar nav{display:none;position:absolute;top:76px;left:0;right:0;padding:12px 20px 18px;background:var(--navy);flex-direction:column;align-items:stretch;gap:0;box-shadow:0 12px 20px #061b3130}
+ .topbar nav.open{display:flex}
+ .topbar nav a{padding:12px 5px;border-bottom:1px solid #ffffff25;font-size:15px}
+ .header-tools{gap:6px}
+ .header-search{max-width:160px}
+ .header-search input{width:100px}
+ .nav-cta{font-size:14px;padding:10px 13px}
+}
+@media(max-width:680px){
+ .topbar nav{top:68px}
+ .header-search{max-width:145px}
+ .header-search input{width:84px}
+}
