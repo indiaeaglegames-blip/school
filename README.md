@@ -20,7 +20,7 @@ A responsive, low-bandwidth learning website for high school students. The eight
    python -m http.server 8000
    ```
 
-3. Visit `http://localhost:8000`.
+3. Visit `http://localhost:8000`. This static server supports the site’s local learning features; account deletion runs through the deployed Vercel API. To exercise it locally, run the project with `vercel dev` and local environment variables (never commit them).
 
 No package install or build step is needed. The styles use system-font fallbacks; the site does not fetch external fonts, images, APIs, or libraries.
 
