@@ -102,7 +102,7 @@
   if(reauthError||!reauth.session){button.disabled=false;byId('deleteStatus').textContent='Password verification failed. Your account was not deleted.';return}
   byId('deleteStatus').textContent='Deleting account…';
   try{
-   const response=await fetch('/api/account/delete',{method:'POST',headers:{Authorization:'Bearer '+reauth.session.access_token}});
+   const response=await fetch(cfg.supabaseUrl+'/functions/v1/delete-account',{method:'POST',headers:{'Content-Type':'application/json',apikey:cfg.supabaseAnonKey,Authorization:'Bearer '+reauth.session.access_token}});
    const result=await response.json().catch(()=>({}));
    if(!response.ok)throw new Error(result.error||'The account could not be deleted. Please try again.');
    await sb.auth.signOut();dialog.close();showDashboard(null);setPanel('login');byId('deletePassword').value='';setStatus('Your account was deleted. Browser-local learning activity, suggestions, and reports remain on this device.','success');
