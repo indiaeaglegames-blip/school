@@ -1,4 +1,4 @@
-# URX96 Virtual Labs
+# SciSphere | Virtual Labs for Learning Science
 
 A responsive, low-bandwidth learning website for high school students. The eight subject pathways are Physics, Chemistry, Biology, Mathematics, History, Yoga, Sports, and Robotics. Each pathway includes five modules, lesson explanations, key points, activities, module knowledge checks, project challenges, and a glossary.
 
@@ -52,3 +52,8 @@ The support area includes an FAQ, a problem report form, locally saved reviews a
 The Email the project team link opens a pre-addressed email draft to **djs07760@gmail.com**. The visitor must send the email. The site cannot confirm delivery. No support submissions, reviews, or suggestions are publicly visible or shared with the project team in this prototype. Clearing browser storage can remove local records.
 
 To enable real cross-device support and feedback tracking, replace the local-storage handlers with a backend or hosted form service. Store records server-side, return opaque reference IDs, and expose status updates only through an authenticated support dashboard or a protected user lookup. Add consent, retention, access controls, server-side validation, rate limiting, and spam protection before collecting real student data.
+
+
+## Branding
+
+The website brand is SciSphere, with a text-based wordmark and a lightweight SVG favicon. The tagline is “Explore Science. Experiment. Discover.” Internal browser storage key names retain their original identifiers so returning learners do not lose locally saved progress or suggestions.
