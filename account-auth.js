@@ -5,7 +5,7 @@
  const setStatus=(message,state='info')=>{status.textContent=message;status.dataset.state=state};
  const setupReady=!!(cfg.supabaseUrl&&cfg.supabaseAnonKey&&window.supabase?.createClient);
  if(!setupReady){
-  setStatus('Account service is not connected yet. Create a Supabase project and add its Project URL and public anon key to auth-config.js. No password entered here will be saved or sent until setup is complete.');
+  setStatus('Account service is not connected yet. Create a Supabase project and add its Project URL and public publishable/anon key to auth-config.js. No password entered here will be saved or sent until setup is complete.');
   document.querySelectorAll('#accountGuest button[type="submit"]').forEach(button=>button.disabled=true);
   return;
  }
