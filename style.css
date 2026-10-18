@@ -100,3 +100,39 @@ body[data-theme="dark"] ::placeholder{color:#c1ced8}
  .header-search{max-width:145px}
  .header-search input{width:84px}
 }
+
+/* SciSphere identity */
+:root{--navy:#12305A;--navy2:#1d477e;--blue:#2563EB;--green:#0D9488}
+.topbar{background:#12305A}
+.brand-copy{display:grid;gap:3px;min-width:0}
+.brand-copy b{display:inline-flex;align-items:center;width:max-content;padding:0 6px;border-radius:5px;background:#fff;line-height:1.25}
+.brand-copy b .brand-sci{color:#2563EB}
+.brand-copy b .brand-sphere{color:#0D9488}
+.brand-copy small{font-size:9px;line-height:1.2;letter-spacing:.3px;color:#fff;white-space:nowrap}
+.hero-brandlockup{display:grid;justify-items:start;gap:4px;margin:12px 0 0}
+.hero-brandlockup strong{display:inline-flex;align-items:center;background:#fff;border-radius:6px;padding:1px 8px;font:800 25px/1.35 Arial,Roboto,Inter,sans-serif;letter-spacing:-.6px}
+.hero-brandlockup .brand-sci{color:#2563EB}
+.hero-brandlockup .brand-sphere{color:#0D9488}
+.hero-brandlockup small{font-size:13px;line-height:1.4;color:#fff;letter-spacing:.2px}
+footer .brand-copy small{font-size:9px;letter-spacing:.3px;color:#fff}
+@media(max-width:680px){
+ .header-search,.nav-cta{display:none}
+ .brand-copy{gap:2px}
+ .brand-copy small{white-space:normal;max-width:132px;font-size:8px;letter-spacing:0;line-height:1.15}
+ .brand b{font-size:18px}
+ .brand .logo{font-size:25px}
+ .topbar{gap:6px}
+ .menu-toggle{flex:0 0 40px}
+ .language-picker select{padding:0 6px;max-width:50px}
+ .hero-brandlockup strong{font-size:22px}
+ .hero-brandlockup small{font-size:12px}
+}
+@media(max-width:360px){
+ .topbar{padding:0 12px}
+ .brand{gap:6px}
+ .brand b{font-size:17px}
+ .brand .logo{font-size:23px}
+ .brand-copy small{max-width:120px;font-size:7px}
+ .menu-toggle{flex-basis:38px}
+ .language-picker select{max-width:44px}
+}
