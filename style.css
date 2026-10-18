@@ -136,3 +136,16 @@ footer .brand-copy small{font-size:9px;letter-spacing:.3px;color:#fff}
  .menu-toggle{flex-basis:38px}
  .language-picker select{max-width:44px}
 }
+
+@media(max-width:1360px){
+ .topbar{gap:12px}
+ .menu-toggle{display:block;margin-left:auto;flex:0 0 44px}
+ .topbar nav{display:none;position:absolute;top:76px;left:0;right:0;padding:12px 20px 18px;background:var(--navy);flex-direction:column;align-items:stretch;gap:0;box-shadow:0 12px 20px #061b3130}
+ .topbar nav.open{display:flex}
+ .topbar nav a{padding:12px 5px;border-bottom:1px solid #ffffff25;font-size:15px}
+ .header-tools{gap:6px}
+ .header-search{max-width:160px}
+ .header-search input{width:100px}
+ .nav-cta{font-size:14px;padding:10px 13px}
+}
+@media(max-width:680px){.topbar nav{top:68px}}
