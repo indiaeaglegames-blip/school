@@ -155,3 +155,13 @@ footer .brand-copy small{font-size:9px;letter-spacing:.3px;color:#fff}
  .menu-toggle{margin-left:0}
  .header-tools{margin-left:auto}
 }
+
+/* User-provided SciSphere logo */
+.brand-image{display:block;width:210px;height:auto;max-height:64px;object-fit:contain;border-radius:8px;background:#fff;padding:5px 8px}
+.hero-brandlockup{margin:0 0 15px}
+.hero-logo{display:block;width:min(100%,360px);height:auto;object-fit:contain;border-radius:12px;background:#fff;padding:8px 12px}
+footer .brand-image{width:220px;max-height:70px}
+@media(max-width:680px){
+ .brand-image{width:170px;max-height:52px;padding:4px 7px}
+ .hero-logo{width:min(100%,320px);padding:7px 10px}
+}
