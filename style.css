@@ -38,3 +38,47 @@ body[data-theme="dark"] .pill,body[data-theme="dark"] .meta-chip{background:#253
 
 .support-section{background:#fff}.support-grid{max-width:1050px;margin:0 auto 18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:start}.support-lower{margin-top:18px}.tracking-card>p{margin-bottom:16px}.tracking-card form .btn{width:100%;margin-top:12px}.tracking-result{margin-top:14px;padding:13px;border-radius:10px;background:#f2f7fc;border:1px solid var(--line);font-size:11px;line-height:1.7;color:var(--muted)}.tracking-result.error{color:#a23b2e;border-color:#edc5be;background:#fff8f6}.support-direct{margin-top:22px;padding-top:17px;border-top:1px solid var(--line)}.support-direct b{font-size:13px}.support-direct p{font-size:11px;color:var(--muted);line-height:1.7}.support-direct .btn{width:100%}.faq-card details{border-top:1px solid var(--line);padding:13px 0}.faq-card details:first-of-type{margin-top:12px}.faq-card summary{cursor:pointer;font-size:12px;font-weight:700;line-height:1.6}.faq-card details p{margin:8px 0 0;font-size:11px;line-height:1.7;color:var(--muted)}.faq-card details a{text-decoration:underline;color:#126bb7}.rating-summary{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px;background:#f8f5ff;border-radius:10px;color:var(--purple);font-size:12px}.rating-summary span{font-size:10px;color:var(--muted)}.review-list{list-style:none;padding:0;margin:16px 0 0;max-height:260px;overflow:auto}.review-list li{padding:12px 0;border-top:1px solid var(--line)}.review-list li b{font-size:11px}.review-list li p{font-size:11px;line-height:1.6;color:var(--muted);margin:6px 0}.review-list li small{font-size:9px;color:var(--muted)}
 @media(max-width:680px){.support-grid{grid-template-columns:1fr}.support-section{padding-top:48px}.tracking-result{overflow-wrap:anywhere}}
+
+/* Readability and responsive typography system */
+html{font-size:16px;scroll-padding-top:90px}
+body{font-family:Arial,Roboto,Inter,sans-serif;font-size:16px;line-height:1.6;color:#173452}
+p,li{font-size:16px!important;line-height:1.65!important}
+.hero h1{font-size:clamp(34px,4vw,44px);line-height:1.12;letter-spacing:-1.2px}
+.section-title h2,.progress-main h2,.about-copy h2,.detail-hero h2{font-size:clamp(26px,3vw,34px);line-height:1.2;letter-spacing:-.6px}
+.subject-card h3,.form-card h3,.curriculum-heading h3,.project-box h3,.glossary-box h3{font-size:22px;line-height:1.3}
+.lesson h4,.module-title strong,.quiz-box h4{font-size:18px;line-height:1.4}
+.topbar nav a,.nav-cta,.btn,.lab-tab,.lab-buttons .btn,.form-card button,.footer-theme{font-size:15px;line-height:1.4}
+.form-card label,.form-card input,.form-card textarea,.form-card select,.search-box input,.header-search input{font-size:15px}
+.form-card input,.form-card textarea,.form-card select,.search-box input,.header-search input{min-height:44px}
+.form-card textarea{min-height:110px}
+button,.btn,.lab-tab,.topbar nav a,.footer-theme{min-height:44px}
+.form-card label,.detail-sidebar h3,.form-card h3{color:#173452}
+small,.eyebrow,.module-index,.result-count,.pill,.tag-row span,.meta-chip,.form-status,.disclaimer,.subject-card .subject-meta,.lesson-complete,.quiz-result,.project-item .pill{font-size:13px!important;line-height:1.5!important}
+.subject-card .tagline,.module-title small,.lesson li,.activity,.glossary-item span,.project-item p,.progress-card small,.trust-strip small,.float-card small,.lab-note,.tracking-result,.faq-card details p,.review-list li small{font-size:14px!important;line-height:1.6!important}
+a{ text-underline-offset:3px }
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #126bb7;outline-offset:3px}
+::placeholder{color:#566b7e;opacity:1}
+.lesson p,.lab-stage p,.section-title p,.about-copy p{max-width:72ch}
+.form-status{color:#405b73!important}
+body[data-theme="dark"] .support-section{background:#0d1720}
+body[data-theme="dark"] .tracking-result,body[data-theme="dark"] .rating-summary{background:#172a36;border-color:#435563;color:#d9e5ec}
+body[data-theme="dark"] .review-list li{border-color:#344753}
+body[data-theme="dark"] .review-list li small{color:#c5d1da}
+body[data-theme="dark"] ::placeholder{color:#c1ced8}
+@media(max-width:680px){
+ html{scroll-padding-top:72px}
+ .hero h1{font-size:clamp(30px,8vw,38px);line-height:1.14;letter-spacing:-.6px}
+ .section-title h2,.progress-main h2,.about-copy h2,.detail-hero h2{font-size:clamp(25px,7vw,31px);line-height:1.2}
+ .subject-card h3,.form-card h3,.curriculum-heading h3,.project-box h3,.glossary-box h3{font-size:20px}
+ .topbar nav a,.nav-cta,.btn,.lab-tab,.lab-buttons .btn,.form-card button,.footer-theme{font-size:15px}
+ .section{padding-left:17px;padding-right:17px}
+ .form-card{min-width:0}
+ .contact-grid,.support-grid,.subject-grid,.progress-cards,.project-list,.glossary-list{min-width:0}
+}
+@media(max-width:360px){
+ .hero h1{font-size:30px}
+ .hero-tags{align-items:flex-start}
+ .form-card,.lab-stage,.curriculum{padding:15px}
+ .trust-strip{padding-left:12px;padding-right:12px}
+ .topbar{gap:8px}
+}
