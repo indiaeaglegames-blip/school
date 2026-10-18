@@ -149,3 +149,9 @@ footer .brand-copy small{font-size:9px;letter-spacing:.3px;color:#fff}
  .nav-cta{font-size:14px;padding:10px 13px}
 }
 @media(max-width:680px){.topbar nav{top:68px}}
+
+@media(max-width:1360px){
+ .topbar>.brand{display:flex;flex:0 0 auto;visibility:visible;opacity:1;position:relative;z-index:2}
+ .menu-toggle{margin-left:0}
+ .header-tools{margin-left:auto}
+}
