@@ -117,6 +117,6 @@
  sb.auth.getSession().then(({data,error})=>{
   if(error){setStatus('Could not restore your account session. Please log in again.','error');return}
   if(data.session?.user)showDashboard(data.session.user);
-  else showDashboard(null);
+  else{showDashboard(null);setStatus('Account service is ready. Create an account or log in.','success')}
  });
 })();
