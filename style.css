@@ -220,3 +220,5 @@ body[data-theme="dark"] .account-card h3,body[data-theme="dark"] .account-explai
 body[data-theme="dark"] .account-card input,body[data-theme="dark"] .delete-dialog input,body[data-theme="dark"] .profile-form input{background:#0e1b25;color:#e2ebf2;border-color:#435563}
 body[data-theme="dark"] .delete-dialog{background:#172733;color:#e2ebf2}
 @media(max-width:760px){.account-grid{grid-template-columns:1fr}.dashboard-heading{align-items:flex-start;flex-direction:column}.profile-form{grid-template-columns:1fr}.profile-form label{grid-column:auto}.profile-form .btn{width:100%}.delete-dialog{padding:19px}}
+
+button:disabled{opacity:.5;cursor:not-allowed;filter:grayscale(.3)}
