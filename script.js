@@ -4,8 +4,9 @@
  const tints = {physics:'#e4f3ff',chemistry:'#e1f8ef',biology:'#eee8ff',yoga:'#fff0e3',sports:'#ffebee',robotics:'#e2f5f8',mathematics:'#eeeaff',history:'#f5eadf'};
  const storageKey='urx96-progress-v1';
  let progress = loadProgress(); let currentSubject = null; let toastTimer;
- function loadProgress(){try{return JSON.parse(localStorage.getItem(storageKey))||{lessons:{},quizzes:{}}}catch{return {lessons:{},quizzes:{}}}}
- function save(){try{localStorage.setItem(storageKey,JSON.stringify(progress))}catch{} updateProgress()}
+ function loadProgress(){try{if(localStorage.getItem('scisphere-save-progress')==='false')return {lessons:{},quizzes:{}};return JSON.parse(localStorage.getItem(storageKey))||{lessons:{},quizzes:{}}}catch{return {lessons:{},quizzes:{}}}}
+ function save(){try{if(localStorage.getItem('scisphere-save-progress')==='false')localStorage.removeItem(storageKey);else localStorage.setItem(storageKey,JSON.stringify(progress))}catch{} updateProgress()}
+ window.addEventListener('scisphere:progress-privacy-changed',e=>{if(!e.detail?.enabled){progress={lessons:{},quizzes:{}};updateProgress()}});
  function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
  function notify(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2600)}
  function lessonKey(s,m,l){return `${s.id}:${m}:${l}`}

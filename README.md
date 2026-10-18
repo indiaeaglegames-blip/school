@@ -24,6 +24,21 @@ A responsive, low-bandwidth learning website for high school students. The eight
 
 No package install or build step is needed. The styles use system-font fallbacks; the site does not fetch external fonts, images, APIs, or libraries.
 
+## Accounts (Supabase setup required)
+
+The account screen supports email/password registration, login/logout, email-verification and password-reset links, a personal dashboard, a browser-progress privacy toggle, and confirmed account deletion. Registration and login stay disabled with a setup notice until a Supabase project is connected. Passwords are sent directly to Supabase Auth; they are never saved by the website.
+
+1. Create a Supabase project and enable email/password sign-in. Keep email confirmation enabled.
+2. In Supabase Authentication URL settings, set the site URL to `https://school-one-sable.vercel.app` and add `https://school-one-sable.vercel.app/**` as a redirect URL. Add your local development URL (for example `http://localhost:8000/**`) while testing.
+3. Configure a trusted SMTP sender in Supabase if verification and password-reset messages must reach student addresses reliably.
+4. Copy the project's **Project URL** and **publishable/anon key** into `auth-config.js`. These are public browser settings; never put a service-role or secret key there.
+5. In Vercel Project → Settings → Environment Variables, add `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` for the server-side account deletion function. Use the legacy service-role key or a compatible Supabase secret key, restrict it to the server environment, then redeploy. Never commit this key.
+6. After deployment, register a test account, verify its email, log in, request a password reset, and use the delete-account confirmation flow. Do not use a real student's account during setup.
+
+The delete endpoint verifies the caller's access token with Supabase before deleting that same authenticated user. The secret key is used only in the Vercel function. Local progress is optional and controlled by the dashboard privacy setting; suggestions and problem reports remain separate local-only demo data. Account deletion does not erase those browser-local records. For shared progress or feedback across devices, add database tables with row-level security and an explicit retention policy.
+
+Vercel automatically deploys Node.js functions placed under the repository-root `api/` directory. The included endpoint is `/api/account/delete`.
+
 ## Contact and suggestions
 
 The contact form validates the required email, subject, and message, then prepares a `mailto:` draft. The visitor must review and send it. No frontend API key or password is used, and the site does not report delivery success. The project email is linked in the contact section and footer.

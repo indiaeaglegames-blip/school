@@ -165,3 +165,58 @@ footer .brand-image{width:220px;max-height:70px}
  .brand-image{width:170px;max-height:52px;padding:4px 7px}
  .hero-logo{width:min(100%,320px);padding:7px 10px}
 }
+
+/* Account creation, sign-in, privacy settings, and dashboard */
+.account-section{background:#f5f9fe}
+.account-grid{max-width:980px;margin:0 auto;display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:start}
+.account-card h3,.account-explainer h3,.account-dashboard h3{font-size:22px;margin:0 0 15px;color:var(--navy)}
+.auth-tabs{display:flex;gap:8px;margin:0 0 16px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.auth-tab{border:1px solid var(--line);border-radius:999px;min-height:44px;padding:8px 15px;background:white;color:var(--ink);font-weight:700}
+.auth-tab.active{background:var(--navy);border-color:var(--navy);color:white}
+.account-card label,.delete-dialog label,.profile-form label{display:block;font-weight:700;font-size:15px;margin:12px 0 6px}
+.account-card input,.delete-dialog input,.profile-form input{width:100%;min-height:46px;border:1px solid #c7d5e2;border-radius:9px;padding:10px 12px;background:#fbfdff;color:var(--ink);font-size:16px}
+.account-card input:focus,.delete-dialog input:focus,.profile-form input:focus{outline:3px solid #2563eb55;border-color:#2563eb}
+.account-card form>.btn{width:100%;margin-top:16px}
+.account-card small,.privacy-copy{display:block;color:var(--muted);font-size:14px;line-height:1.6}
+.text-button{border:0;background:transparent;color:#135ea5;text-decoration:underline;text-underline-offset:3px;font-weight:700;padding:10px 0;min-height:44px}
+.privacy-copy{margin-top:14px}
+.account-explainer ul{padding-left:22px;line-height:1.7}
+.account-explainer li{margin:8px 0}
+.account-status{max-width:980px;margin:0 auto 18px;padding:13px 16px;border:1px solid #e7cf8b;background:#fff9e7;color:#624a11;border-radius:11px;font-size:15px;line-height:1.6}
+.account-status[data-state="error"]{border-color:#e7b9b3;background:#fff5f3;color:#8c2e24}
+.account-status[data-state="success"]{border-color:#abd9c5;background:#f0fbf5;color:#155a39}
+.verification-notice{margin-top:12px;padding:14px;border-radius:10px;background:#f1f7fd;border:1px solid var(--line);line-height:1.6}
+.verification-notice p{margin:6px 0}
+.account-dashboard{max-width:980px;margin:0 auto}
+.dashboard-heading{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.dashboard-heading h3{margin:4px 0}
+.dashboard-heading p{margin:0;color:var(--muted);overflow-wrap:anywhere}
+.verification-badge{border-radius:999px;padding:8px 12px;background:#e8f7ef;color:#145c39;font-weight:700;font-size:14px}
+.dashboard-progress{margin:18px 0;padding:18px;border:1px solid var(--line);border-radius:12px;background:#f4f8fd;display:grid;gap:4px}
+.dashboard-progress strong{font-size:25px;color:var(--navy)}
+.dashboard-progress span{color:var(--muted);font-size:14px}
+.profile-form{display:grid;grid-template-columns:1fr auto;gap:0 12px;align-items:end;max-width:640px}
+.profile-form label{grid-column:1/-1}
+.profile-form .btn{min-height:46px}
+.privacy-settings{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+.privacy-settings h4{font-size:18px;margin:0 0 10px}
+.privacy-toggle{display:flex;align-items:flex-start;gap:12px;cursor:pointer}
+.privacy-toggle input{width:22px;height:22px;min-width:22px;margin:3px 0;accent-color:#2563eb}
+.privacy-toggle span,.privacy-toggle small{display:block}
+.privacy-toggle b{font-size:15px}
+.privacy-toggle small{margin-top:4px;line-height:1.6}
+.account-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.account-actions .btn{min-width:130px}
+.danger-outline{color:#9c3025;border:1px solid #ca8077;background:white}
+.danger-button{color:#fff;background:#a92f24}
+.delete-dialog{width:min(520px,calc(100% - 28px));border:0;border-radius:17px;padding:24px;box-shadow:0 20px 70px #00182b55;color:var(--ink)}
+.delete-dialog::backdrop{background:#061a2dbb}
+.delete-dialog h3{margin:0 0 8px;color:#7f251e;font-size:23px}
+.delete-dialog p{line-height:1.6}
+.delete-dialog .account-actions{justify-content:flex-end}
+body[data-theme="dark"] .account-section{background:#0d1720}
+body[data-theme="dark"] .auth-tab,body[data-theme="dark"] .account-status,body[data-theme="dark"] .verification-notice,body[data-theme="dark"] .dashboard-progress,body[data-theme="dark"] .danger-outline{background:#172733;color:#e2ebf2;border-color:#435563}
+body[data-theme="dark"] .account-card h3,body[data-theme="dark"] .account-explainer h3,body[data-theme="dark"] .account-dashboard h3,body[data-theme="dark"] .dashboard-progress strong{color:#e2ebf2}
+body[data-theme="dark"] .account-card input,body[data-theme="dark"] .delete-dialog input,body[data-theme="dark"] .profile-form input{background:#0e1b25;color:#e2ebf2;border-color:#435563}
+body[data-theme="dark"] .delete-dialog{background:#172733;color:#e2ebf2}
+@media(max-width:760px){.account-grid{grid-template-columns:1fr}.dashboard-heading{align-items:flex-start;flex-direction:column}.profile-form{grid-template-columns:1fr}.profile-form label{grid-column:auto}.profile-form .btn{width:100%}.delete-dialog{padding:19px}}
