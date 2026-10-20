@@ -222,3 +222,22 @@ body[data-theme="dark"] .delete-dialog{background:#172733;color:#e2ebf2}
 @media(max-width:760px){.account-grid{grid-template-columns:1fr}.dashboard-heading{align-items:flex-start;flex-direction:column}.profile-form{grid-template-columns:1fr}.profile-form label{grid-column:auto}.profile-form .btn{width:100%}.delete-dialog{padding:19px}}
 
 button:disabled{opacity:.5;cursor:not-allowed;filter:grayscale(.3)}
+
+/* Supplied Virtual Labs identity: compact mark in navigation, full lockup in the hero. */
+.brand{gap:10px}
+.brand-emblem{width:48px;height:42px;display:grid;place-items:center;overflow:hidden;flex:0 0 48px;border-radius:8px;background:#fff}
+.brand-emblem img{display:block;width:100%;height:100%;object-fit:contain}
+.brand-copy b{font-size:20px;letter-spacing:-.4px}
+.brand-copy small{font-size:12px;line-height:1.2;color:#e8f2ff}
+.hero-brandlockup{margin:2px 0 12px}
+.hero-logo{display:block;width:min(100%,260px);height:auto;padding:0;border:1px solid #dce7f2;border-radius:14px;background:#fff;box-shadow:0 12px 28px #031b3018}
+footer .brand-emblem{width:54px;height:46px;flex-basis:54px}
+footer .brand-copy b{font-size:20px}
+@media(max-width:680px){
+ .brand-emblem{width:38px;height:36px;flex-basis:38px}
+ .brand{gap:7px}
+ .brand-copy b{font-size:17px}
+ .brand-copy small{font-size:11px}
+ .hero-logo{width:min(100%,228px)}
+ footer .brand-emblem{width:44px;height:40px;flex-basis:44px}
+}
